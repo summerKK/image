@@ -24,7 +24,7 @@ jobs:
       with:
         php-version: ${{ matrix.php-versions }}
         tools: composer:v1
-        extension: imagick
+        extensions: imagick
       uses: shivammathur/setup-php@v2
 
     - name: Get Composer cache directory
