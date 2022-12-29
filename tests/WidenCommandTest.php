@@ -33,7 +33,7 @@ class WidenCommandTest extends PHPUnit_Framework_TestCase
     {
         $callback = function ($constraint) { $constraint->upsize(); };
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('scaleimage')->with(300, 200)->once()->andReturn(true);
+        $imagick->shouldReceive('scaleImage')->with(300, 200)->once()->andReturn(true);
         $size = Mockery::mock('Intervention\Image\Size', [800, 600]);
         $size->shouldReceive('resize')->once()->andReturn($size);
         $size->shouldReceive('getWidth')->once()->andReturn(300);

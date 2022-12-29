@@ -23,7 +23,7 @@ class InvertCommandTest extends PHPUnit_Framework_TestCase
     public function testImagick()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('negateimage')->with(false)->andReturn(true);
+        $imagick->shouldReceive('negateImage')->with(false)->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new InvertImagick([]);

@@ -13,27 +13,27 @@ class ImagickColorTest extends PHPUnit_Framework_TestCase
     {
         $c = new Color;
         $c->pixel = Mockery::mock('ImagickPixel');
-        $c->pixel->shouldReceive('getcolorvalue')->with(Imagick::COLOR_RED)->andReturn(0.956862745098);
+        $c->pixel->shouldReceive('getColorValue')->with(Imagick::COLOR_RED)->andReturn(0.956862745098);
         $this->assertEquals(244, $c->getRedValue());
 
         $c = new Color;
         $c->pixel = Mockery::mock('ImagickPixel');
-        $c->pixel->shouldReceive('getcolorvalue')->with(Imagick::COLOR_GREEN)->andReturn(0.0470588235294);
+        $c->pixel->shouldReceive('getColorValue')->with(Imagick::COLOR_GREEN)->andReturn(0.0470588235294);
         $this->assertEquals(12, $c->getGreenValue());
 
         $c = new Color;
         $c->pixel = Mockery::mock('ImagickPixel');
-        $c->pixel->shouldReceive('getcolorvalue')->with(Imagick::COLOR_BLUE)->andReturn(0.0862745098039);
+        $c->pixel->shouldReceive('getColorValue')->with(Imagick::COLOR_BLUE)->andReturn(0.0862745098039);
         $this->assertEquals(22, $c->getBlueValue());
 
         $c = new Color;
         $c->pixel = Mockery::mock('ImagickPixel');
-        $c->pixel->shouldReceive('getcolorvalue')->with(Imagick::COLOR_ALPHA)->andReturn(1);
+        $c->pixel->shouldReceive('getColorValue')->with(Imagick::COLOR_ALPHA)->andReturn(1);
         $this->assertEquals(1, $c->getAlphaValue());
 
         $c = new Color;
         $c->pixel = Mockery::mock('ImagickPixel');
-        $c->pixel->shouldReceive('getcolorvalue')->with(Imagick::COLOR_ALPHA)->andReturn(1);
+        $c->pixel->shouldReceive('getColorValue')->with(Imagick::COLOR_ALPHA)->andReturn(1);
         $this->assertEquals(1, $c->getAlphaValue());
     }
 

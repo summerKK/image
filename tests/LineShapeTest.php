@@ -38,7 +38,7 @@ class LineShapeTest extends PHPUnit_Framework_TestCase
 
         // imagick
         $core = Mockery::mock('\Imagick');
-        $core->shouldReceive('drawimage')->once();
+        $core->shouldReceive('drawImage')->once();
         $image = Mockery::mock('\Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($core);
         $line = new LineImagick(10, 15);

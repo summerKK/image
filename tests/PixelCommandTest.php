@@ -23,7 +23,7 @@ class PixelCommandTest extends PHPUnit_Framework_TestCase
     public function testImagick()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('drawimage')->once()->andReturn(true);
+        $imagick->shouldReceive('drawImage')->once()->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new PixelImagick(['#b53717', 10, 20]);

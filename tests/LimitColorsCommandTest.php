@@ -27,11 +27,11 @@ class LimitColorsCommandTest extends PHPUnit_Framework_TestCase
     {
         $size = Mockery::mock('\Intervention\Image\Size', [32, 32]);
         $imagick = Mockery::mock('\Imagick');
-        $imagick->shouldReceive('separateimagechannel')->with(\Imagick::CHANNEL_ALPHA)->times(2);
-        $imagick->shouldReceive('transparentpaintimage')->with('#ffffff', 0, 0, false)->once();
-        $imagick->shouldReceive('negateimage')->with(false)->once();
-        $imagick->shouldReceive('quantizeimage')->with(16, \Imagick::COLORSPACE_RGB, 0, false, false)->once();
-        $imagick->shouldReceive('compositeimage')->once();
+        $imagick->shouldReceive('separateImageChannel')->with(\Imagick::CHANNEL_ALPHA)->times(2);
+        $imagick->shouldReceive('transparentPaintImage')->with('#ffffff', 0, 0, false)->once();
+        $imagick->shouldReceive('negateImage')->with(false)->once();
+        $imagick->shouldReceive('quantizeImage')->with(16, \Imagick::COLORSPACE_RGB, 0, false, false)->once();
+        $imagick->shouldReceive('compositeImage')->once();
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getSize')->once()->andReturn($size);
         $image->shouldReceive('getCore')->times(3)->andReturn($imagick);

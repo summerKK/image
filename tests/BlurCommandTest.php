@@ -23,7 +23,7 @@ class BlurCommandTest extends PHPUnit_Framework_TestCase
     public function testImagick()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('blurimage')->with(2, 1)->andReturn(true);
+        $imagick->shouldReceive('blurImage')->with(2, 1)->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new BlurImagick([2]);

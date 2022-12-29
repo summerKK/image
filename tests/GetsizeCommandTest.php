@@ -25,8 +25,8 @@ class GetsizeCommandTest extends PHPUnit_Framework_TestCase
     public function testImagick()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('getimagewidth')->with();
-        $imagick->shouldReceive('getimageheight')->with();
+        $imagick->shouldReceive('getImageWidth')->with();
+        $imagick->shouldReceive('getImageHeight')->with();
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new GetSizeImagick([]);

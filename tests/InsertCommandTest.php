@@ -52,7 +52,7 @@ class InsertCommandTest extends PHPUnit_Framework_TestCase
         $driver = Mockery::mock('Intervention\Image\Imagick\Driver');
         $driver->shouldReceive('init')->with($path)->once()->andReturn($watermark);
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('compositeimage')->with($imagick, \Imagick::COMPOSITE_DEFAULT, 10, 20)->andReturn(true);
+        $imagick->shouldReceive('compositeImage')->with($imagick, \Imagick::COMPOSITE_DEFAULT, 10, 20)->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $image->shouldReceive('getDriver')->once()->andReturn($driver);

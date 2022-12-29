@@ -26,7 +26,7 @@ class RectangleCommandTest extends PHPUnit_Framework_TestCase
     public function testImagick()
     {
         $imagick = Mockery::mock('\Imagick');
-        $imagick->shouldReceive('drawimage');
+        $imagick->shouldReceive('drawImage');
         $driver = Mockery::mock('\Intervention\Image\Imagick\Driver');
         $driver->shouldReceive('getDriverName')->once()->andReturn('Imagick');
         $image = Mockery::mock('\Intervention\Image\Image');

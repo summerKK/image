@@ -65,7 +65,7 @@ class FillCommandTest extends PHPUnit_Framework_TestCase
     public function testImagickFill()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('drawimage')->once()->andReturn(true);
+        $imagick->shouldReceive('drawImage')->once()->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getWidth')->once()->andReturn(800);
         $image->shouldReceive('getHeight')->once()->andReturn(600);
@@ -78,9 +78,9 @@ class FillCommandTest extends PHPUnit_Framework_TestCase
     public function testImagickFillWithCoordinates()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('getimagepixelcolor')->once()->andReturn('#000000');
-        $imagick->shouldReceive('transparentpaintimage')->once()->andReturn(true);
-        $imagick->shouldReceive('compositeimage')->times(3)->andReturn(true);
+        $imagick->shouldReceive('getImagePixelColor')->once()->andReturn('#000000');
+        $imagick->shouldReceive('transparentPaintImage')->once()->andReturn(true);
+        $imagick->shouldReceive('compositeImage')->times(3)->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->andReturn($imagick);
         $image->shouldReceive('getWidth')->andReturn(800);

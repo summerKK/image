@@ -23,7 +23,7 @@ class GreyscaleCommandTest extends PHPUnit_Framework_TestCase
     public function testImagick()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('modulateimage')->with(100, 0, 100)->andReturn(true);
+        $imagick->shouldReceive('modulateImage')->with(100, 0, 100)->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new GreyscaleImagick([]);

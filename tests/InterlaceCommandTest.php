@@ -23,7 +23,7 @@ class InterlaceCommandTest extends PHPUnit_Framework_TestCase
     public function testImagick()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('setinterlacescheme')->with(\Imagick::INTERLACE_LINE)->andReturn(true);
+        $imagick->shouldReceive('setInterlaceScheme')->with(\Imagick::INTERLACE_LINE)->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new InterlaceImagick([true]);

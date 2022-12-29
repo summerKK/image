@@ -28,7 +28,7 @@ class PolygonCommandTest extends PHPUnit_Framework_TestCase
     {
         $points = [1, 2, 3, 4, 5, 6];
         $imagick = Mockery::mock('\Imagick');
-        $imagick->shouldReceive('drawimage');
+        $imagick->shouldReceive('drawImage');
         $driver = Mockery::mock('\Intervention\Image\Imagick\Driver');
         $driver->shouldReceive('getDriverName')->once()->andReturn('Imagick');
         $image = Mockery::mock('\Intervention\Image\Image');

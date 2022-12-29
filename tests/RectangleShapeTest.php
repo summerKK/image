@@ -42,7 +42,7 @@ class RectangleShapeTest extends PHPUnit_Framework_TestCase
 
         // imagick
         $core = Mockery::mock('\Imagick');
-        $core->shouldReceive('drawimage')->once();
+        $core->shouldReceive('drawImage')->once();
         $image = Mockery::mock('\Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($core);
         $rectangle = new RectangleImagick(10, 15, 100, 150);

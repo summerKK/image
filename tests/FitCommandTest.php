@@ -58,9 +58,9 @@ class FitCommandTest extends PHPUnit_Framework_TestCase
         $original_size = Mockery::mock('\Intervention\Image\Size', [800, 600]);
         $original_size->shouldReceive('fit')->with(Mockery::any(), 'center')->once()->andReturn($cropped_size);
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('cropimage')->with(800, 400, 0, 100)->andReturn(true);
-        $imagick->shouldReceive('scaleimage')->with(200, 100)->once()->andReturn(true);
-        $imagick->shouldReceive('setimagepage')->with(0, 0, 0, 0)->andReturn(true);
+        $imagick->shouldReceive('cropImage')->with(800, 400, 0, 100)->andReturn(true);
+        $imagick->shouldReceive('scaleImage')->with(200, 100)->once()->andReturn(true);
+        $imagick->shouldReceive('setImagePage')->with(0, 0, 0, 0)->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getSize')->once()->andReturn($original_size);
         $image->shouldReceive('getCore')->times(3)->andReturn($imagick);
@@ -79,9 +79,9 @@ class FitCommandTest extends PHPUnit_Framework_TestCase
         $original_size = Mockery::mock('\Intervention\Image\Size', [800, 600]);
         $original_size->shouldReceive('fit')->with(Mockery::any(), 'top-left')->once()->andReturn($cropped_size);
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('cropimage')->with(800, 400, 0, 100)->andReturn(true);
-        $imagick->shouldReceive('scaleimage')->with(200, 100)->once()->andReturn(true);
-        $imagick->shouldReceive('setimagepage')->with(0, 0, 0, 0)->andReturn(true);
+        $imagick->shouldReceive('cropImage')->with(800, 400, 0, 100)->andReturn(true);
+        $imagick->shouldReceive('scaleImage')->with(200, 100)->once()->andReturn(true);
+        $imagick->shouldReceive('setImagePage')->with(0, 0, 0, 0)->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getSize')->once()->andReturn($original_size);
         $image->shouldReceive('getCore')->times(3)->andReturn($imagick);

@@ -23,7 +23,7 @@ class SharpenCommandTest extends PHPUnit_Framework_TestCase
     public function testImagick()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('unsharpmaskimage')->with(1, 1, 8, 0)->andReturn(true);
+        $imagick->shouldReceive('unsharpMaskImage')->with(1, 1, 8, 0)->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new SharpenImagick([50]);

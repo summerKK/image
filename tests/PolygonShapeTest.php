@@ -44,7 +44,7 @@ class PolygonShapeTest extends PHPUnit_Framework_TestCase
     public function testImagickApplyToImage()
     {
         $core = Mockery::mock('\Imagick');
-        $core->shouldReceive('drawimage')->once();
+        $core->shouldReceive('drawImage')->once();
         $image = Mockery::mock('\Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($core);
         $polygon = new PolygonImagick([1, 2, 3, 4, 5, 6]);

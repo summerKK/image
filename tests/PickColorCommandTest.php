@@ -39,7 +39,7 @@ class PickColorCommandTest extends PHPUnit_Framework_TestCase
     public function testImagickWithCoordinates()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('getimagepixelcolor')->with(1, 2)->andReturn(new ImagickPixel);
+        $imagick->shouldReceive('getImagePixelColor')->with(1, 2)->andReturn(new ImagickPixel);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new PickColorImagick([1, 2]);
@@ -53,7 +53,7 @@ class PickColorCommandTest extends PHPUnit_Framework_TestCase
     public function testImagickWithFormat()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('getimagepixelcolor')->with(1, 2)->andReturn(new ImagickPixel('#ff0000'));
+        $imagick->shouldReceive('getImagePixelColor')->with(1, 2)->andReturn(new ImagickPixel('#ff0000'));
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new PickColorImagick([1, 2, 'hex']);

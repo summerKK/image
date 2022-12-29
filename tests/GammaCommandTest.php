@@ -23,7 +23,7 @@ class GammaCommandTest extends PHPUnit_Framework_TestCase
     public function testImagick()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('gammaimage')->with(1.4)->once()->andReturn(true);
+        $imagick->shouldReceive('gammaImage')->with(1.4)->once()->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new GammaImagick([1.4]);

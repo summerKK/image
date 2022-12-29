@@ -23,7 +23,7 @@ class ContrastCommandTest extends PHPUnit_Framework_TestCase
     public function testImagick()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('sigmoidalcontrastimage')->with(true, 5, 0)->andReturn(true);
+        $imagick->shouldReceive('sigmoidalContrastImage')->with(true, 5, 0)->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new ContrastImagick([20]);

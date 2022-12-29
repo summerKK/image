@@ -255,16 +255,16 @@ class EncoderTest extends PHPUnit_Framework_TestCase
     public function getImagickMock($type)
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('setformat')->with($type)->once();
-        $imagick->shouldReceive('setimageformat')->once();
-        $imagick->shouldReceive('setcompression')->once();
-        $imagick->shouldReceive('setimagecompression')->once();
-        $imagick->shouldReceive('setcompressionquality');
-        $imagick->shouldReceive('setimagecompressionquality');
-        $imagick->shouldReceive('setimagebackgroundcolor');
-        $imagick->shouldReceive('setbackgroundcolor');
-        $imagick->shouldReceive('mergeimagelayers')->andReturn($imagick);
-        $imagick->shouldReceive('getimagesblob')->once()->andReturn(sprintf('mock-%s', $type));
+        $imagick->shouldReceive('setFormat')->with($type)->once();
+        $imagick->shouldReceive('setImageFormat')->once();
+        $imagick->shouldReceive('setCompression')->once();
+        $imagick->shouldReceive('setImageCompression')->once();
+        $imagick->shouldReceive('setCompressionQuality');
+        $imagick->shouldReceive('setImageCompressionQuality');
+        $imagick->shouldReceive('setImageBackgroundColor');
+        $imagick->shouldReceive('setBackgroundColor');
+        $imagick->shouldReceive('mergeImageLayers')->andReturn($imagick);
+        $imagick->shouldReceive('getImagesBlob')->once()->andReturn(sprintf('mock-%s', $type));
         return $imagick;
     }
 

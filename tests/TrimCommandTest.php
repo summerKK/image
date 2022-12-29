@@ -35,11 +35,11 @@ class TrimCommandTest extends PHPUnit_Framework_TestCase
         $imagick = Mockery::mock('Imagick');
         $imagick->width = 100;
         $imagick->height = 100;
-        $imagick->shouldReceive('borderimage')->with($baseColorPixel, 1, 1)->once()->andReturn(true);
-        $imagick->shouldReceive('trimimage')->with(29632.5)->once()->andReturn(true);
-        $imagick->shouldReceive('getimagepage')->once()->andReturn(['x' => 50, 'y' => 50]);
-        $imagick->shouldReceive('cropimage')->with(104, 202, 47, 0)->once()->andReturn(true);
-        $imagick->shouldReceive('setimagepage')->with(0, 0, 0, 0)->once()->andReturn(true);
+        $imagick->shouldReceive('borderImage')->with($baseColorPixel, 1, 1)->once()->andReturn(true);
+        $imagick->shouldReceive('trimImage')->with(29632.5)->once()->andReturn(true);
+        $imagick->shouldReceive('getImagePage')->once()->andReturn(['x' => 50, 'y' => 50]);
+        $imagick->shouldReceive('cropImage')->with(104, 202, 47, 0)->once()->andReturn(true);
+        $imagick->shouldReceive('setImagePage')->with(0, 0, 0, 0)->once()->andReturn(true);
         $imagick->shouldReceive('destroy')->with()->once()->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getWidth')->once()->andReturn(800);

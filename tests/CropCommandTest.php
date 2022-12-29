@@ -24,8 +24,8 @@ class CropCommandTest extends PHPUnit_Framework_TestCase
     public function testImagick()
     {
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('cropimage')->with(100, 150, 10, 20)->andReturn(true);
-        $imagick->shouldReceive('setimagepage')->with(0, 0, 0, 0)->once();
+        $imagick->shouldReceive('cropImage')->with(100, 150, 10, 20)->andReturn(true);
+        $imagick->shouldReceive('setImagePage')->with(0, 0, 0, 0)->once();
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->times(2)->andReturn($imagick);
         $command = new CropImagick([100, 150, 10, 20]);

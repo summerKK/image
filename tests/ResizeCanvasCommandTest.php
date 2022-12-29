@@ -51,13 +51,13 @@ class ResizeCanvasCommandTest extends PHPUnit_Framework_TestCase
         $canvas = Mockery::mock('\Intervention\Image\Image');
 
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('cropimage')->with(800, 600, 0, 0)->once();
-        $imagick->shouldReceive('compositeimage')->with($imagick, 40, 0, 0)->once();
-        $imagick->shouldReceive('setimagepage')->with(0, 0, 0, 0)->once();
-        $imagick->shouldReceive('drawimage')->once();
-        $imagick->shouldReceive('transparentpaintimage')->once();
-        $imagick->shouldReceive('getimagecolorspace')->once();
-        $imagick->shouldReceive('setimagecolorspace')->once();
+        $imagick->shouldReceive('cropImage')->with(800, 600, 0, 0)->once();
+        $imagick->shouldReceive('compositeImage')->with($imagick, 40, 0, 0)->once();
+        $imagick->shouldReceive('setImagePage')->with(0, 0, 0, 0)->once();
+        $imagick->shouldReceive('drawImage')->once();
+        $imagick->shouldReceive('transparentPaintImage')->once();
+        $imagick->shouldReceive('getImageColorspace')->once();
+        $imagick->shouldReceive('setImageColorspace')->once();
 
         $canvas->shouldReceive('getCore')->times(6)->andReturn($imagick);
         $canvas->shouldReceive('getSize')->andReturn($canvas_size);

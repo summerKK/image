@@ -42,7 +42,7 @@ class EllipseShapeTest extends PHPUnit_Framework_TestCase
     public function testImagickApplyToImage()
     {
         $core = Mockery::mock('\Imagick');
-        $core->shouldReceive('drawimage')->once();
+        $core->shouldReceive('drawImage')->once();
         $image = Mockery::mock('\Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($core);
         $ellipse = new EllipseImagick(250, 150);

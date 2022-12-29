@@ -25,7 +25,7 @@ class RotateCommandTest extends PHPUnit_Framework_TestCase
     {
         $pixel = Mockery::mock('ImagickPixel', ['#b53717']);
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('rotateimage')->andReturn(true);
+        $imagick->shouldReceive('rotateImage')->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new RotateImagick([45, '#b53717']);
