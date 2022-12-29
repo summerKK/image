@@ -1,0 +1,46 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - v-2.4.1
+
+jobs:
+
+  test:
+    name: PHP ${{ matrix.php-versions }} (Redis ${{ matrix.redis-versions }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-versions: ['7.3', '7.4']
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup PHP with Composer and extensions
+      with:
+        php-version: ${{ matrix.php-versions }}
+        tools: composer:v1
+      uses: shivammathur/setup-php@v2
+
+    - name: Get Composer cache directory
+      id: composercache
+      run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+    - name: Cache Composer dependencies
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.composercache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: ${{ runner.os }}-composer-
+
+    - name: Install Composer dependencies
+      env:
+        PHP_VERSION: ${{ matrix.php-versions }}
+      run: composer update -n --prefer-dist
+
+    - name: Test with PHPUnit
+      run: vendor/bin/phpunit --configuration ./phpunit.xml
