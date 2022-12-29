@@ -9,7 +9,7 @@ class FlipCommandTest extends PHPUnit_Framework_TestCase
     {
         Mockery::close();
     }
-    
+
     public function testGd()
     {
         $size = Mockery::mock('\Intervention\Image\Size', [800, 600]);
@@ -34,7 +34,7 @@ class FlipCommandTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($result);
 
         $imagick = Mockery::mock('Imagick');
-        $imagick->shouldReceive('flipimage')->with()->andReturn(true);
+        $imagick->shouldReceive('flipImage')->with()->andReturn(true);
         $image = Mockery::mock('Intervention\Image\Image');
         $image->shouldReceive('getCore')->once()->andReturn($imagick);
         $command = new FlipImagick(['v']);
