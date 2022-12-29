@@ -8,7 +8,7 @@ on:
 jobs:
 
   test:
-    name: PHP ${{ matrix.php-versions }} (Redis ${{ matrix.redis-versions }})
+    name: PHP ${{ matrix.php-versions }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -25,6 +25,8 @@ jobs:
         php-version: ${{ matrix.php-versions }}
         tools: composer:v1
       uses: shivammathur/setup-php@v2
+      with:
+        extension: imagick
 
     - name: Get Composer cache directory
       id: composercache
